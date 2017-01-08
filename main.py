@@ -34,7 +34,7 @@ def cadastrarLoginHTML():
 
 @app.route("/cadastrarLogin", methods=["POST"])
 def cadastrarLoginDB():
-    cur.execute("INSERT INTO login (nome, email, senha) VALUES(%s, %s, %s)", (request.form['nome'], request.form['email'], request.form['pwd']))
+    cur.execute("INSERT INTO login VALUES(%s, %s, %s, %s)", (1, request.form['nome'], request.form['email'], request.form['pwd']))
     conn.commit()
     return "Usuario inserido com sucesso!"
 
