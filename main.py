@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, url_for
 
-app = Flask(__name__)
+app = Flask("wtf")
 
 @app.route("/")
 def index():
