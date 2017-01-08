@@ -9,7 +9,7 @@ def index():
 
 
 @app.route("/<name>")
-def index(name):
+def nome(name):
     return "Ola {}".format(name)
 
 if __name__ == "__main__":
