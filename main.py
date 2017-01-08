@@ -40,7 +40,7 @@ def cadastrarLoginDB():
     return "Usuario inserido com sucesso!"
 
 #Lista usuarios cadastrados
-@app.route("/listaLogin", methods=["POST"])
+@app.route("/listaLogin")
 def listaLoginDB():
     cur.execute("SELECT * FROM login")
     rows = cur.fetchall()
