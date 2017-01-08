@@ -5,15 +5,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<h1>Hello World</hi>"
+    return "<h1>Hello World</h1>"
 
 
 @app.route("/<name>")
 def index(name):
-    if name.lower() == "ewerton":
-        return "Olá {}".format(name)
-    else:
-        return "Not Found"
+    return "Olá {}".format(name)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
