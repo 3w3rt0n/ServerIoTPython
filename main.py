@@ -21,7 +21,7 @@ cur = conn.cursor()
 app = Flask("wtf")
 
 @app.route("/")
-def index():
+def indexHTML():
     return current_app.send_static_file('login.html')
 
 @app.route("/login", methods=["GET", "POST"])
@@ -29,11 +29,11 @@ def login():
     return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
 
 @app.route("/cadastrarLogin.html")
-def index():
+def cadastrarLoginHTML():
     return current_app.send_static_file('cadastrarLogin.html')
 
 @app.route("/cadastrarLogin", methods["POST"])
-def cadastrarLogin():
+def cadastrarLoginDB():
     cur.execute("INSERT INTO login (nome, email, senha) VALUES(%s, %s, %s)", (request.form['nome'], request.form['email'], request.form['pwd']))
     conn.commit()
     return "Usuario inserido com sucesso!"
