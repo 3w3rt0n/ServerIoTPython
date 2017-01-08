@@ -1,0 +1,20 @@
+{  
+	"name": "Servidor-IoT",  
+	"version": "1.0.0",  
+	"description": "Servidor IoT - ESP8266",  
+	"main": "index.js",  
+	"scripts": {    
+		"start": "node index.js"
+	},  
+	"keywords": [
+    		"IoT",
+    		"heroku",
+		"Node.js"
+  	],  
+	"dependencies": {
+		"lowdb": "^0.14.0",
+    		"querystring": "^0.2.0"
+	},
+	"author": "3w3rt0n",  
+	"license": "MIT"
+}
