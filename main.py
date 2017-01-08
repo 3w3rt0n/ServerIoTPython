@@ -7,14 +7,13 @@ app = Flask("wtf")
 def index():
     return current_app.send_static_file('login.html')
 
-
 @app.route("/<name>")
 def nome(name):
     return "Ola {}".format(name)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return "Email: {}".format(request.form['email'])
+    return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
     
 
 if __name__ == "__main__":
