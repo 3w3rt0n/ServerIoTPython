@@ -32,7 +32,7 @@ def login():
 def cadastrarLoginHTML():
     return current_app.send_static_file('cadastrarLogin.html')
 
-@app.route("/cadastrarLogin", methods["POST"])
+@app.route("/cadastrarLogin", methods=["POST"])
 def cadastrarLoginDB():
     cur.execute("INSERT INTO login (nome, email, senha) VALUES(%s, %s, %s)", (request.form['nome'], request.form['email'], request.form['pwd']))
     conn.commit()
