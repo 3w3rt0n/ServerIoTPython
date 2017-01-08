@@ -28,6 +28,12 @@ def index():
 def login():
     return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
 
+@app.route("/cadastrarLogin", methods["POST"])
+def cadastrarLogin():
+    cur.execute("INSERT INTO login (nome, email, senha) VALUES(%s, %s, %s)", (request.form['nome'], request.form['email'], request.form['pwd']))
+    conn.commit()
+    return "Usuario inserido com sucesso!"
+
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
 #----------------------------------------------------------#
