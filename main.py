@@ -3,7 +3,7 @@ import psycopg2
 import urlparse
 from flask import Flask, request, url_for, current_app, render_template
 
-"""Conexão do banco PostgreSQL"""
+#Conexão do banco PostgreSQL
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -17,6 +17,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+#Define a aplicação
 app = Flask("wtf")
 
 @app.route("/")
@@ -27,8 +28,9 @@ def index():
 def login():
     return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
 
-
-"""Funções de Teste"""
+#----------------------------------------------------------#
+#                       Funções de Teste                   #
+#----------------------------------------------------------#
 @app.route("/<name>")
 def nome(name):
     return "Ola {}".format(name)
