@@ -28,6 +28,7 @@ def indexHTML():
 def login():
     return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
 
+#Cadastrar novo usuario
 @app.route("/cadastrarLogin.html")
 def cadastrarLoginHTML():
     return current_app.send_static_file('cadastrarLogin.html')
@@ -37,6 +38,17 @@ def cadastrarLoginDB():
     cur.execute("INSERT INTO login VALUES(%s, %s, %s, %s)", (1, request.form['nome'], request.form['email'], request.form['pwd']))
     conn.commit()
     return "Usuario inserido com sucesso!"
+
+#Lista usuarios cadastrados
+@app.route("/listaLogin", methods=["POST"])
+def listaLoginDB():
+    cur.execute("SELECT * FROM login")
+    rows = cur.fetchall()
+    usuarios = "<ul>"
+    for row in rows:
+        usuarios += "<li>" + row + "</li>"
+    usuarios += "</ul>" 
+    return "Usuarios cadastrados: " + usuarios
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
