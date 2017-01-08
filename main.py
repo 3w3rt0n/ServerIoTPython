@@ -13,7 +13,7 @@ def nome(name):
     return "Ola {}".format(name)
 
 @app.route("/login", methods=["GET", "POST"])
-def login
+def login():
     return "Email: {}".format(request.form['email'])
     
 
