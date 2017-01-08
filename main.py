@@ -46,7 +46,7 @@ def listaLoginDB():
     rows = cur.fetchall()
     usuarios = "<ul>"
     for row in rows:
-        usuarios += "<li>" + row + "</li>"
+        usuarios = usuarios + "<li>" + row + "</li>"
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
 
