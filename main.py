@@ -11,9 +11,9 @@ def index():
 @app.route("/<name>")
 def index(name):
     if name.lower() == "ewerton":
-        return "Olá {}".format(name), 200
+        return "Olá {}".format(name)
     else:
-        return "Not Found", 404
+        return "Not Found"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
