@@ -10,7 +10,7 @@ def index():
 
 @app.route("/<name>")
 def index(name):
-    return "Olá {}".format(name)
+    return "Ola {}".format(name)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
