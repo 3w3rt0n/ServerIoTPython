@@ -10,15 +10,15 @@ As plataformas baseadas no ESP-8266 foi o primeiro chip a desbancar o arduino ta
 
 ![Image](https://github.com/3w3rt0n/ServerNodeJSIoT/blob/master/Documentacao/Imagens/modulos-esp8266.png)
 
-### Witty Cloud
+### 1 - Witty Cloud
 
 ![Image](https://github.com/3w3rt0n/ServerNodeJSIoT/blob/master/Documentacao/Imagens/ESP8266-Witty.jpg)
 
-### Wemos D1
+### 2 - Wemos D1
 
 ![Image](https://github.com/3w3rt0n/ServerNodeJSIoT/blob/master/Documentacao/Imagens/wemosd1.jpg)
 
-### ESP-01
+### 3 - ESP-01
 
 ![Image](https://github.com/3w3rt0n/ServerNodeJSIoT/blob/master/Documentacao/Imagens/esp8266-esp01.jpg)
 
