@@ -1,11 +1,11 @@
 import os
-from flask import Flask, request, url_for, current_app
+from flask import Flask, request, url_for, current_app, render_template
 
 app = Flask("wtf")
 
 @app.route("/")
 def index():
-    return current_app.send_static_file('/HTML/login.html')
+    return current_app.send_static_file('login.html')
 
 
 @app.route("/<name>")
