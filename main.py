@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, current_app
 
 app = Flask("wtf")
 
