@@ -46,9 +46,27 @@ def listaLoginDB():
     rows = cur.fetchall()
     usuarios = "<ul>"
     for row in rows:
-        usuarios = usuarios + "<li>Nome: " + row[1] + "</li><li>Email: " + row[2] + "</li><br\>"
+        usuarios = usuarios + "<li>Nome: " + row[1] + "</li><li>Email: " + row[2] + "</li>"
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
+
+#Lista dispositivos cadastrados
+@app.route("/listaDisposaitvos")
+def listaDispositivosDB():
+    cur.execute("SELECT * FROM dispositivos")
+    rows = cur.fetchall()
+    usuarios = "<ul>"
+    for row in rows:
+        usuarios = usuarios + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] "</li><li>----</li>"
+    usuarios += "</ul>" 
+    return "Usuarios cadastrados: " + usuarios
+
+@app.route("/cadastrarDispositivo", methods=["POST"])
+def cadastrarDispositivoDB():
+    cur.execute("INSERT INTO login VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (1, request.form['idUsuario'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
+    conn.commit()
+    return "Dispositivo inserido com sucesso!"
+
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
@@ -57,11 +75,17 @@ def listaLoginDB():
 def nome(name):
     return "Ola {}".format(name)
 
-@app.route("/criarTabela")
-def criarTabela():
+@app.route("/criarTabelaLogin")
+def criarTabelaLogin():
     cur.execute("CREATE TABLE login(Id INTEGER PRIMARY KEY, nome VARCHAR(30), email VARCHAR(50), senha VARCHAR(20))")    
     conn.commit()
-    return "<p>Criado tabela</p>"
+    return "<p>Criado tabela login</p>"
+
+@app.route("/criarTabelaDispositivos")
+def criarTabelaDispositivos():
+    cur.execute("CREATE TABLE dispositivos(Id INTEGER PRIMARY KEY, idUsuario INTEGER, dispositivo VARCHAR(50), a0 INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER)")    
+    conn.commit()
+    return "<p>Criado tabela dispositivos</p>"
     
 
 if __name__ == "__main__":
