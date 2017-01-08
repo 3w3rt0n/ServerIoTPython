@@ -1,4 +1,4 @@
-# Projeto de IoT com Node.js
+# Projeto de um servidor de aplicação web com Python para IoT
 
 You can use the [editor on GitHub](https://github.com/3w3rt0n/ServerNodeJSIoT/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
