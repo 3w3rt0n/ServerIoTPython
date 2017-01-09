@@ -68,7 +68,7 @@ def listaDispositivosDB():
 
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
-    cur.execute("INSERT INTO dispositivos VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (1, request.form['idUsuario'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
+    cur.execute("INSERT INTO dispositivos VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (2, request.form['idUsuario'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
 
