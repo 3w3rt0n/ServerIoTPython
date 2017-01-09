@@ -56,7 +56,7 @@ def cadastrarDispositivosHTML():
     return current_app.send_static_file('cadastrarDispositivos.html')
 
 #Lista dispositivos cadastrados
-@app.route("/listaDispositvos")
+@app.route("/listaDispositivos")
 def listaDispositivosDB():
     cur.execute("SELECT * FROM dispositivos")
     rows = cur.fetchall()
@@ -78,7 +78,7 @@ def cadastrarDispositivoDB():
 #----------------------------------------------------------#
 @app.route("/<name>")
 def nome(name):
-    return "Ola {}".format(name)
+    return "Pagina nao encontrada: {}".format(name)
 
 @app.route("/criarTabelaLogin")
 def criarTabelaLogin():
