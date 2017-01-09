@@ -50,6 +50,11 @@ def listaLoginDB():
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
 
+#Cadastrar novo usuario
+@app.route("/cadastrarDispositivos.html")
+def cadastrarDispositivosHTML():
+    return current_app.send_static_file('cadastrarDispositivos.html')
+
 #Lista dispositivos cadastrados
 @app.route("/listaDispositvos")
 def listaDispositivosDB():
@@ -57,7 +62,7 @@ def listaDispositivosDB():
     rows = cur.fetchall()
     usuarios = "<ul>"
     for row in rows:
-        usuarios = usuarios + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] + "</li><li>----</li>"
+        usuarios = usuarios + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] "</li><li>----</li>"
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
 
