@@ -51,7 +51,7 @@ def listaLoginDB():
     return "Usuarios cadastrados: " + usuarios
 
 #Lista dispositivos cadastrados
-@app.route("/listaDisposaitvos")
+@app.route("/listaDispositvos")
 def listaDispositivosDB():
     cur.execute("SELECT * FROM dispositivos")
     rows = cur.fetchall()
@@ -61,7 +61,7 @@ def listaDispositivosDB():
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
 
-@app.route("/cadastrarDispositivo", methods=["POST"])
+@app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
     cur.execute("INSERT INTO login VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (1, request.form['idUsuario'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
     conn.commit()
