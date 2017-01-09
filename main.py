@@ -62,7 +62,7 @@ def listaDispositivosDB():
     rows = cur.fetchall()
     dispositivos = "<ul>"
     for row in rows:
-        dispositivos = dispositivos + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] + "</li><li>----</li>"
+        dispositivos = dispositivos + "<li>id Usuario: " + str(row[1]) + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + str(row[3]) + str(row[4]) + str(row[5]) + str(row[6]) + str(row[7]) + str(row[8]) + str(row[9]) + str(row[10]) + str(row[11]) + str(row[12]) + "</li><li>----</li>"
     dispositivosos += "</ul>" 
     return "Dispositivos cadastrados: " + dispositivos
 
