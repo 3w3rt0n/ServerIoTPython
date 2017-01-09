@@ -60,11 +60,11 @@ def cadastrarDispositivosHTML():
 def listaDispositivosDB():
     cur.execute("SELECT * FROM dispositivos")
     rows = cur.fetchall()
-    usuarios = "<ul>"
+    dispositivos = "<ul>"
     for row in rows:
-        usuarios = usuarios + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] + "</li><li>----</li>"
-    usuarios += "</ul>" 
-    return "Usuarios cadastrados: " + usuarios
+        dispositivos = dispositivos + "<li>id Usuario: " + row[1] + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + row[3] + row[4] + row[5] + row[6] + row[7] + row[8] + row[9] + row[10] + row[11] + row[12] + "</li><li>----</li>"
+    dispositivosos += "</ul>" 
+    return "Dispositivos cadastrados: " + dispositivos
 
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
