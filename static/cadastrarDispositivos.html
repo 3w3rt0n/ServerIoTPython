@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="http://imageshack.com/a/img923/6904/Ml2aYx.png" />
+    <title>Server IoT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Server IoT - ESP8266</h1>
+      <h4>Bem-vindo!</h4>
+    </div>
+		
+	<div class="container" >
+		
+		<form class="form-horizontal" action="/cadastrarDispositivos" method="POST">
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="idUsuario">idUsuario:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="idUsuario" name="idUsuario" placeholder="idUsuario">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="MAC">MAC:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="MAC" name="MAC" placeholder="Enter MAC do dispositivo">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="a0">Porta analogica:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="a0" name="a0" placeholder="Valor da porta analogica">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d0">Porta digital 0:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d0" name="d0" placeholder="Valor da porta 0">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="1">Porta digital 1:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d1" name="d1" placeholder="Valor da porta 1">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d2">Porta digital 2:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d2" name="d2" placeholder="Valor da porta 2">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d3">Porta digital 3:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d3" name="d3" placeholder="Valor da porta 3">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d0">Porta digital 4:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d4" name="d4" placeholder="Valor da porta 4">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d5">Porta digital 5:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d5" name="d5" placeholder="Valor da porta 5">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d6">Porta digital 6:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d6" name="d6" placeholder="Valor da porta 6">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d7">Porta digital 7:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d7" name="d7" placeholder="Valor da porta 7">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-offset-3 col-sm-2" for="d8">Porta digital 8:</label>
+				<div class="col-sm-4">          
+					<input type="text" class="form-control" id="d8" name="d8" placeholder="Valor da porta 8">
+				</div>
+			</div>
+			<div class="form-group">     
+				<div class="col-sm-offset-5 col-sm-10">
+					<button type="submit" class="btn btn-default btn-success col-sm-4">Cadastrar!</button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+	<!--
+	<div class="panel-footer" style="position: absolute; bottom: 0; width: 100%; text-align: right;">Desenvolvidor por Ewerton Leandro de Sousa - 03/01/2017</div>
+	-->
+ 
+  </body>
+</html>
