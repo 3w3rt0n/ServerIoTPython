@@ -63,7 +63,7 @@ def listaDispositivosDB():
     dispositivos = "<ul>"
     for row in rows:
         dispositivos = dispositivos + "<li>id Usuario: " + str(row[1]) + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + str(row[3]) + str(row[4]) + str(row[5]) + str(row[6]) + str(row[7]) + str(row[8]) + str(row[9]) + str(row[10]) + str(row[11]) + str(row[12]) + "</li><li>----</li>"
-    dispositivosos += "</ul>" 
+    dispositivos += "</ul>" 
     return "Dispositivos cadastrados: " + dispositivos
 
 @app.route("/cadastrarDispositivos", methods=["POST"])
