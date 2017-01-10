@@ -39,7 +39,7 @@ def login():
     for row in rows:
         if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
             #return redirect(url_for('dispositivosHTML'))
-            cur2.execute("SELECT COUNT(*) FROM dispositvos WHERE idUsuario = " + str(row[0]))
+            cur2.execute("SELECT COUNT(*) FROM dispositivos WHERE idUsuario = " + str(row[0]))
             numDispositivos = cur2.fetchone()
             return render_template("dispositivos.html", nome = row[1], dispositivos = numDispositivos )
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
