@@ -21,8 +21,8 @@
 
 		<ul class="nav nav-pills">
 			<li class="active"><a data-toggle="tab" href="#home">Principal</a></li>
-		{% for numDispositivo in dispositivos %}
-			<li><a data-toggle="tab" href="#menu{{ numDispositivo }}">Dispositivo {{ numDispositivo }}</a></li>
+		{% for num in range(1, dispositivos) %}
+			<li><a data-toggle="tab" href="#menu{{ num }}">Dispositivo {{ num }}</a></li>
 		{% endfor %}
 			<li><a data-toggle="tab" href="#menu2">Dispositivo 2</a></li>
 			<li><a data-toggle="tab" href="#menu3">Dispositivo 3</a></li>
