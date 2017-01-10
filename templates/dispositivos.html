@@ -24,15 +24,15 @@
 			{% for dispositivo in dispositivos %}
 			<li><a data-toggle="tab" href="#menu{{ dispositivo[2] }}">Dispositivo: {{ dispositivo[2] }}</a></li>
 			{% endfor %}
-			<li><a data-toggle="tab" href="#menu2">Dispositivo 2</a></li>
-			<li><a data-toggle="tab" href="#menu3">Dispositivo 3</a></li>
 		</ul>
 
 		<div class="tab-content" style="height: 100%;">
 			<div id="home" class="tab-pane fade in active">
 				<h3>Todos</h3>
 				<div class="list-group">
-					<div class="list-group-item">
+					{% for dispositivo in dispositivos %}	
+					<div class="list-group-item">						
+						<span>{{ dispositivo[2] }}</span>
 						<button type="button" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-off"></span> Ligado
 						</button>
@@ -42,44 +42,8 @@
 						<button type="button" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-cog"></span> Configurações
 						</button>
-						<span>Dispositivo 1</span>
 					</div>
-					<div class="list-group-item">
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-off"></span> Desligado 
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-signal"></span> Ruim
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-cog"></span> Configurações
-						</button>
-						<span>Dispositivo 2</span>
-					</div>
-					<div class="list-group-item">
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-off"></span> Desligado 
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-signal"></span> Excelente
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-cog"></span> Configurações
-						</button>
-						<span>Dispositivo 3</span>
-					</div>
-					<div class="list-group-item">
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-off"></span> Ligado
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-signal"></span> Bom 
-						</button>
-						<button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-cog"></span> Configurações 
-						</button>
-						<span>Dispositivo 4</span>
-					</div>
+					{% endfor %}				
 				</div>
 			</div>
 			{% for dispositivo in dispositivos %}			
@@ -90,24 +54,13 @@
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
-			</div>
-			{% endfor %}
-			<div id="menu2" class="tab-pane fade">
-				<h3>Dispositivo 2</h3>
-				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Desligado" width="70" height="70"> 
-				<div class="btn-group">
+				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 			</div>
-			<div id="menu3" class="tab-pane fade">
-				<h3>Dispositivo 3</h3>
-				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
-				<div class="btn-group">
-					<a href="#" class="btn btn-primary" role="button">Ligar</a>
-					<a href="#" class="btn btn-warning" role="button">Desligar</a>
-				</div>
-			</div>
+			{% endfor %}			
 		</div>
 		
 	</div>
