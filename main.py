@@ -31,7 +31,7 @@ def login():
     cur.execute("SELECT * FROM login")
     rows = cur.fetchall()
     for row in rows:
-        if request.form['email'] == row[2] && request.form['pwd'] == row[3]:
+        if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
             redirect(url_for('dispositvos.html'))
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><br /><p>Senha: {}".format(request.form['pwd']) + "</p>"
 
