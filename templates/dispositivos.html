@@ -12,15 +12,18 @@
   <body>
     <div class="jumbotron text-center">
       <h1>Server IoT - ESP8266</h1>
-      <h4>Seja bem-vindo, {{nome}}!</h4>
+      <h4>Seja bem-vindo, {{ nome }}!</h4>
     </div>
 		
 	<div class="container" >
 		<h2>Dispositivos</h2>
-		<p>Aqui estão listados todos os dispositovos conectados no momento.</p>
+		<p>Aqui estão listados todos os dispositovos cadastrados.</p>
 
 		<ul class="nav nav-pills">
 			<li class="active"><a data-toggle="tab" href="#home">Principal</a></li>
+			{% for numDispositivo in dispositivos %}
+				<li><a data-toggle="tab" href="#menu{{ numDispositivo }}">Dispositivo {{ numDispositivo }}</a></li>
+			{% endfor %}
 			<li><a data-toggle="tab" href="#menu1">Dispositivo 1</a></li>
 			<li><a data-toggle="tab" href="#menu2">Dispositivo 2</a></li>
 			<li><a data-toggle="tab" href="#menu3">Dispositivo 3</a></li>
