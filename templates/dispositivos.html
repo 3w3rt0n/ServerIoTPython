@@ -32,7 +32,7 @@
 				<div class="list-group">
 					{% for dispositivo in dispositivos %}	
 					<div class="list-group-item">						
-						<span class="col-sm-2">{{ dispositivo[2] }}</span>
+						<span class="col-sm-1">{{ dispositivo[2] }}</span>
 						<button type="button" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-off col-sm-2"></span> Ligado
 						</button>
@@ -49,43 +49,75 @@
 			{% for dispositivo in dispositivos %}			
 			<div id="menu{{ dispositivo[2] | replace(' ', '_') }}" class="tab-pane fade">
 				<h3>Dispositivo {{ dispositivo[2] }}</h3>
+				{% if "1" in {{ dispositivo[5] }} %}
 				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
+				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[6] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[7] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[8] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 				<br />
+				{% if "1" in {{ dispositivo[9] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[10] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[11] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
+				{% if "1" in {{ dispositivo[12] }} %}
+				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
+				{% endif %}
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
