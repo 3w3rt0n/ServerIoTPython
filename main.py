@@ -20,13 +20,24 @@ cur = conn.cursor()
 #Define a aplicacao
 app = Flask("wtf")
 
+#Enviar a página de login para o navegador
 @app.route("/")
 def indexHTML():
     return current_app.send_static_file('login.html')
 
-@app.route("/login", methods=["GET", "POST"])
+#Verificar se o usuario e a senha estao corretos
+@app.route("/login", methods=["POST"])
 def login():
-    return "Email: {}".format(request.form['email']) + "\nSenha: {}".format(request.form['pwd'])
+    cur.execute("SELECT * FROM login")
+    rows = cur.fetchall()
+    for row in rows:
+        if request.form['email'] == row[2] && request.form['pwd'] == row[3]:
+            redirect(url_for('dispositvos.html'))
+    return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><br /><p>Senha: {}".format(request.form['pwd']) + "</p>"
+
+@app.route("/dispositivos.html")
+def dispositivosHTML():
+    return current_app.send_static_file('dispositivos.html')    
 
 #Cadastrar novo usuario
 @app.route("/cadastrarLogin.html")
