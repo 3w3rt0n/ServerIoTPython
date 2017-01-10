@@ -1,7 +1,7 @@
 import os
 import psycopg2
 import urlparse
-from flask import Flask, request, url_for, current_app, render_template
+from flask import Flask, request, redirect, url_for, current_app, render_template
 
 #Conexao do banco PostgreSQL
 urlparse.uses_netloc.append("postgres")
