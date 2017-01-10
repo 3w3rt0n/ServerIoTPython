@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import psycopg2
@@ -77,13 +78,13 @@ def listaDispositivosDB():
     rows = cur.fetchall()
     dispositivos = "<ul>"
     for row in rows:
-        dispositivos = dispositivos + "<li>id Usuario: " + str(row[1]) + "</li><li>MAC: " + row[2] + "</li><li>Estado: " + str(row[3]) + str(row[4]) + str(row[5]) + str(row[6]) + str(row[7]) + str(row[8]) + str(row[9]) + str(row[10]) + str(row[11]) + str(row[12]) + "</li><li>----</li>"
+        dispositivos = dispositivos + "<li>id Usuario: " + str(row[1]) + "</li><li>Dispositivo: " + row[2]  + "</li><li>MAC: " + row[3] + "</li><li>Estado: " + str(row[4]) + str(row[5]) + str(row[6]) + str(row[7]) + str(row[8]) + str(row[9]) + str(row[10]) + str(row[11]) + str(row[12]) + str(row[13]) + "</li><li>----</li>"
     dispositivos += "</ul>" 
     return "Dispositivos cadastrados: " + dispositivos
 
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
-    cur.execute("INSERT INTO dispositivos VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (2, request.form['idUsuario'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
+    cur.execute("INSERT INTO dispositivos VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (1, request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
 
@@ -103,10 +104,15 @@ def criarTabelaLogin():
 
 @app.route("/criarTabelaDispositivos")
 def criarTabelaDispositivos():
-    cur.execute("CREATE TABLE dispositivos(Id INTEGER PRIMARY KEY, idUsuario INTEGER, dispositivo VARCHAR(50), a0 INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER)")    
+    cur.execute("CREATE TABLE dispositivos(Id INTEGER PRIMARY KEY, idUsuario INTEGER, dispositivo VARCHAR(50), mac VARCHAR(17), a0 INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER)")    
     conn.commit()
     return "<p>Criado tabela dispositivos</p>"
-    
+
+@app.route("/deleteTabela/<tabela>")
+def deleteTabela(tabela):
+    cur.execute("DELETE FROM " + tabela)    
+    conn.commit()
+    return "<p>Tabela {} deletada!</p>".format(tabela)    
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
