@@ -22,7 +22,7 @@
 		<ul class="nav nav-pills">
 			<li class="active"><a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			<li><a data-toggle="tab" href="#menu{{ dispositivo[2] | replace(' ', '_') }}">Dispositivo: {{ dispositivo[2] | replace(' ', '_') }}</a></li>
+			<li><a data-toggle="tab" href="#menu{{ dispositivo[2] | replace(' ', '_') }}">Dispositivo: {{ dispositivo[2] }}</a></li>
 			{% endfor %}
 		</ul>
 
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			{% for dispositivo in dispositivos %}			
-			<div id="menu{{ dispositivo[2] }}" class="tab-pane fade">
+			<div id="menu{{ dispositivo[2] | replace(' ', '_') }}" class="tab-pane fade">
 				<h3>Dispositivo {{ dispositivo[2] }}</h3>
 				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				<div class="btn-group">					
