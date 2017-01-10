@@ -110,7 +110,7 @@ def criarTabelaDispositivos():
 
 @app.route("/deleteTabela/<tabela>")
 def deleteTabela(tabela):
-    SQLcomando = "DELETE FROM " + tabela
+    SQLcomando = "DROP TABLE " + tabela
     cur.execute(SQLcomando)    
     conn.commit()
     return "<p>Tabela {} deletada!</p>".format(tabela)    
