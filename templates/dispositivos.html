@@ -48,9 +48,8 @@
 			</div>
 			{% for dispositivo in dispositivos %}			
 			<div id="menu{{ dispositivo[2] | replace(' ', '_') }}" class="tab-pane fade">
-				<h3>Dispositivo {{ dispositivo[2] }}</h3>
-				{% if "1" ==  dispositivo[5] %}
-				{{ dispositivo[5] }}
+				<h3>Dispositivo {{ dispositivo[2] }}{{ dispositivo[5] }}</h3>
+				{% if "1" ==  dispositivo[5] %}				
 				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% else %}
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
