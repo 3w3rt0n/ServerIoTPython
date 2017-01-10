@@ -39,9 +39,9 @@ def login():
     for row in rows:
         if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
             #return redirect(url_for('dispositivosHTML'))
-            cur2.execute("SELECT COUNT(*) FROM dispositivos WHERE idUsuario = " + str(row[0]))
-            numDispositivos = int(cur2.fetchone())
-            return render_template("dispositivos.html", nome = row[1], dispositivos = numDispositivos )
+            cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]))
+            rows2 = cur2.fetchall()
+            return render_template("dispositivos.html", nome = row[1], dispositivos = rows2)
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
 
 @app.route("/dispositivos.html")
