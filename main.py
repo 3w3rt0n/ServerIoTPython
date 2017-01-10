@@ -1,7 +1,11 @@
 import os
+import sys
 import psycopg2
 import urlparse
 from flask import Flask, request, redirect, url_for, current_app, render_template
+
+reload(sys)     
+sys.setdefaultencoding("utf-8")
 
 #Conexao do banco PostgreSQL
 urlparse.uses_netloc.append("postgres")
