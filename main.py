@@ -20,7 +20,7 @@ cur = conn.cursor()
 #Define a aplicacao
 app = Flask("wtf")
 
-#Enviar a página de login para o navegador
+#Enviar a pagina de login para o navegador
 @app.route("/")
 def indexHTML():
     return current_app.send_static_file('login.html')
