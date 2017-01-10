@@ -82,15 +82,16 @@
 					</div>
 				</div>
 			</div>
-			
-			<div id="menu1" class="tab-pane fade">
-				<h3>Dispositivo 1</h3>
+			{% for dispositivo in dispositivos %}			
+			<div id="menu{{ dispositivo[2] }}" class="tab-pane fade">
+				<h3>Dispositivo {{ dispositivo[2] }}</h3>
 				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				<div class="btn-group">					
 					<a href="#" class="btn btn-primary" role="button">Ligar</a>
 					<a href="#" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 			</div>
+			{% endfor %}
 			<div id="menu2" class="tab-pane fade">
 				<h3>Dispositivo 2</h3>
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Desligado" width="70" height="70"> 
