@@ -37,7 +37,8 @@ def login():
     rows = cur.fetchall()
     for row in rows:
         if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
-            return redirect(url_for('dispositivosHTML'))
+            #return redirect(url_for('dispositivosHTML'))
+            return render_template("dispositivos.html",nome=row[1])
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
 
 @app.route("/dispositivos.html")
