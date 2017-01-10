@@ -33,7 +33,7 @@ def login():
     for row in rows:
         if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
             redirect(url_for('dispositvos.html'))
-    return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><br /><p>Senha: {}".format(request.form['pwd']) + "</p>"
+    return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
 
 @app.route("/dispositivos.html")
 def dispositivosHTML():
@@ -57,7 +57,7 @@ def listaLoginDB():
     rows = cur.fetchall()
     usuarios = "<ul>"
     for row in rows:
-        usuarios = usuarios + "<li>Nome: " + row[1] + "</li><li>Email: " + row[2] + "</li><li>-------</li>"
+        usuarios = usuarios + "<li>Nome: " + row[1] + "</li><li>Email: " + row[2] + "</li><li>Senha: " + row[3] + "</li><li>-------</li>"
     usuarios += "</ul>" 
     return "Usuarios cadastrados: " + usuarios
 
