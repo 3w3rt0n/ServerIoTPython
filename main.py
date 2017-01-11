@@ -100,7 +100,7 @@ def atualizarDispositivoDB():
     SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + " WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
     conn.commit()
-    return "Dispositivo atualizado com sucesso!"
+    return "Dispositivo atualizado com sucesso! (" + SQLcomando + ")"
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
