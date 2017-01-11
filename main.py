@@ -97,10 +97,8 @@ def cadastrarDispositivoDB():
 #http://site/atualizarDispositivoDB?porta=d0&valor=1&IdDisp=9
 @app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
-    porta = request.args.get('porta')
-    valor = request.args.get('valor')
-    IdDisp = request.args.get('IdDisp')
-    cur.execute("UPDATE dispositivos SET %s = %s where Id = %s", (porta, valor, IdDisp))
+    SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + " WHERE Id=" + request.args.get('IdDisp')
+    cur.execute(SQLcomando)
     conn.commit()
     return "Dispositivo atualizado com sucesso!"
 
