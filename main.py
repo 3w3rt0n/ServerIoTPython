@@ -86,12 +86,19 @@ def listaDispositivosDB():
     dispositivos += "</ul>" 
     return "Dispositivos cadastrados: " + dispositivos
 
+#Cadastrar no banco o dispositivo
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
     cur.execute("INSERT INTO dispositivos ( idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
 
+#Atualizar campo no dispositivo --- em teste
+@app.route("/atualizarDispositivos", methods=["POST"])
+def atualizarDispositivoDB():
+    cur.execute("UPDATE dispositivos SET %s = %s where Id = %s", (request.form['porta'], request.form['valor'], request.form['IdDispositivo']))
+    conn.commit()
+    return "Dispositivo atualizado com sucesso!"
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
