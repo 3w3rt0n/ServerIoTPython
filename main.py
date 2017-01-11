@@ -94,9 +94,13 @@ def cadastrarDispositivoDB():
     return "Dispositivo inserido com sucesso!"
 
 #Atualizar campo no dispositivo --- em teste
-@app.route("/atualizarDispositivos", methods=["GET"])
+#http://site/atualizarDispositivoDB?porta=d0&valor=1&IdDisp=9
+@app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
-    cur.execute("UPDATE dispositivos SET %s = %s where Id = %s", (request.form['porta'], request.form['valor'], request.form['IdDispositivo']))
+    porta = request.args.get('porta')
+    valor = request.args.get('valor')
+    IdDisp = request.args.get('IdDisp')
+    cur.execute("UPDATE dispositivos SET %s = %s where Id = %s", (porta, valor, IdDisp))
     conn.commit()
     return "Dispositivo atualizado com sucesso!"
 
