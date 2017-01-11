@@ -102,13 +102,13 @@ def nome(name):
 
 @app.route("/criarTabelaLogin")
 def criarTabelaLogin():
-    cur.execute("CREATE TABLE login(Id INTEGER PRIMARY KEY, nome VARCHAR(30), email VARCHAR(50), senha VARCHAR(20))")    
+    cur.execute("CREATE TABLE login(Id SERIAL PRIMARY KEY, nome VARCHAR(30), email VARCHAR(50), senha VARCHAR(20))")    
     conn.commit()
     return "<p>Criado tabela login</p>"
 
 @app.route("/criarTabelaDispositivos")
 def criarTabelaDispositivos():
-    cur.execute("CREATE TABLE dispositivos(Id INTEGER PRIMARY KEY, idUsuario INTEGER, dispositivo VARCHAR(50), mac VARCHAR(17), a0 INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER)")    
+    cur.execute("CREATE TABLE dispositivos(Id SERIAL PRIMARY KEY, idUsuario INTEGER, dispositivo VARCHAR(50), mac VARCHAR(17), a0 INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER)")    
     conn.commit()
     return "<p>Criado tabela dispositivos</p>"
 
