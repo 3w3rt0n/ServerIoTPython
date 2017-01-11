@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	  
     <meta charset="utf-8">
     <link rel="icon" href="http://imageshack.com/a/img923/6904/Ml2aYx.png" />
     <title>Server IoT</title>
@@ -8,15 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-	$(document).ready(function(){
-    		$("button").click(function(){
-        		$.post("demo_test_post.asp", { porta: "Donald Duck", valor: "Duckburg", IdDispositivo: "12" }, function(data,status){
-            			alert("Data: " + data + "\nStatus: " + status);
-        		});
-    		});
-	});
-  </script>
+
   </head>
   <body>
     <div class="jumbotron text-center">
@@ -65,8 +58,8 @@
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% endif %}
 				<div class="btn-group">					
-					<a href="#" class="btn btn-primary" role="button">Ligar</a>
-					<a href="#" class="btn btn-warning" role="button">Desligar</a>
+					<a href="atualizarDispositivoDB?porta=d0&valor=1&IdDisp=dispositivo[0]" class="btn btn-primary" role="button">Ligar</a>
+					<a href="atualizarDispositivoDB?porta=d7&valor=0&IdDisp=dispositivo[0]" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 				
 				{% if 1 == dispositivo[6] %}
@@ -137,8 +130,8 @@
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% endif %}
 				<div class="btn-group">					
-					<a href="#" class="btn btn-primary" role="button">Ligar</a>
-					<a href="#" class="btn btn-warning" role="button">Desligar</a>
+					<a href="atualizarDispositivoDB?porta=d7&valor=1&IdDisp=dispositivo[0]" class="btn btn-primary" role="button">Ligar</a>
+					<a href="atualizarDispositivoDB?porta=d7&valor=0&IdDisp=dispositivo[0]" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 				
 				{% if 1 == dispositivo[13] %}
@@ -147,8 +140,8 @@
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% endif %}
 				<div class="btn-group">					
-					<a href="#" class="btn btn-primary" role="button">Ligar</a>
-					<a href="#" class="btn btn-warning" role="button">Desligar</a>
+					<a href="atualizarDispositivoDB?porta=d8&valor=1&IdDisp=dispositivo[0]" class="btn btn-primary" role="button">Ligar</a>
+					<a href="atualizarDispositivoDB?porta=d8&valor=0&IdDisp=dispositivo[0]" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 			</div>
 			{% endfor %}			
