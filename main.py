@@ -109,7 +109,7 @@ def nome(name):
 
 #http://site/get?nome=ewerton&frase=aeiou
 @app.route("/get", methods=["GET"])
-def nome():
+def get():
     nome = request.args.get('nome')
     frase = request.args.get('frase')
     return "Nome: " + nome + " - qualquer coisa: " + frase
