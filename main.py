@@ -94,7 +94,7 @@ def cadastrarDispositivoDB():
     return "Dispositivo inserido com sucesso!"
 
 #Atualizar campo no dispositivo --- em teste
-@app.route("/atualizarDispositivos", methods=["POST"])
+@app.route("/atualizarDispositivos", methods=["GET"])
 def atualizarDispositivoDB():
     cur.execute("UPDATE dispositivos SET %s = %s where Id = %s", (request.form['porta'], request.form['valor'], request.form['IdDispositivo']))
     conn.commit()
@@ -106,6 +106,12 @@ def atualizarDispositivoDB():
 @app.route("/<name>")
 def nome(name):
     return "Pagina nao encontrada: {}".format(name)
+
+@app.route("/get", methods=["GET"])
+def nome():
+    nome = request.args.get('nome')
+    frase = request.args.get('frase')
+    return "Nome: " + nome + " - qualquer coisa: " + frase
 
 @app.route("/criarTabelaLogin")
 def criarTabelaLogin():
