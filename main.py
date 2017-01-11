@@ -107,6 +107,7 @@ def atualizarDispositivoDB():
 def nome(name):
     return "Pagina nao encontrada: {}".format(name)
 
+#http://site/get?nome=ewerton&frase=aeiou
 @app.route("/get", methods=["GET"])
 def nome():
     nome = request.args.get('nome')
