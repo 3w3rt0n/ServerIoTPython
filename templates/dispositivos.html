@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			{% for dispositivo in dispositivos %}		
-			{% if pag == 0 %}	
+			{% if pag == dispositivo[0] %}	
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
 			{% else %}
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
