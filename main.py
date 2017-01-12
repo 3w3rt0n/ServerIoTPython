@@ -41,7 +41,10 @@ def login():
             #return redirect(url_for('dispositivosHTML'))
             cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
             rows2 = cur2.fetchall()
-            return render_template("dispositivos.html", nome = row[1], dispositivos = rows2)
+            respLogado = make_response(render_template("dispositivos.html", nome = row[1], dispositivos = rows2))
+            respLogado.set_cookie('IdUsuario', row[0])
+            respLogado.set_cookie('Nome', row[1])
+            return respLogado
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
 
 @app.route("/dispositivos.html")
@@ -103,10 +106,11 @@ def atualizarDispositivoDB():
     if request.args.get('redirecionamento') == 0:
         return "Dispositivo atualizado com sucesso! (" + SQLcomando + ")"
     else:
-        cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
+        IdUsuario = request.cookies.get('IdUsuario')
+        Nome = request.cookies.get('Nome')
+        cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + IdUsuario + " ORDER BY Id ASC")
         rows2 = cur2.fetchall()
-        # nome mudar depois
-        return render_template("dispositivos.html", nome = "teste", dispositivos = rows2)
+        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2)
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
