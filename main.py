@@ -110,8 +110,8 @@ def atualizarDispositivoDB():
         Nome = request.cookies.get('Nome')
         cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + IdUsuario + " ORDER BY Id ASC")
         rows2 = cur2.fetchall()
-        print ":: " + rows2[2]
-        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = rows2[2])
+        print ":: " + str(rows2[2])
+        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = str(rows2[2]))
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
