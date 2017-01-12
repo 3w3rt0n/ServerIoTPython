@@ -102,13 +102,11 @@ def cadastrarDispositivoDB():
 def atualizarDispositivoDB():
     SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + " WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
-    conn.commit()
-    
+    conn.commit()    
     IdUsuario = request.cookies.get('IdUsuario')
     Nome = request.cookies.get('Nome')
     cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + IdUsuario + " ORDER BY Id ASC")
     rows2 = cur2.fetchall()
-    print "::" + request.args.get('IdDisp')
     return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = request.args.get('IdDisp'))
    
 
