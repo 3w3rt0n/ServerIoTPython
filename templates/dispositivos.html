@@ -22,14 +22,14 @@
 		<p>Aqui estão listados todos os dispositovos cadastrados.</p>
 
 		<ul class="nav nav-pills">
-			{% if pag == 0 %}	
+			{% if pag == "0" %}	
 			<li class="active">
 			{% else %}
 			<li>
 			{% endif %}
 			<a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			{% if pag ==  int(dispositivo[0]) %}	
+			{% if pag ==  dispositivo[0] %}	
 			<li class="active">
 			{% else %}
 			<li>
@@ -39,7 +39,7 @@
 		</ul>
 
 		<div class="tab-content" style="height: 100%;">
-			{% if pag == 0 %}	
+			{% if pag == "0" %}	
 			<div id="home" class="tab-pane fade in active">
 			{% else %}
 			<div id="home" class="tab-pane fade">
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			{% for dispositivo in dispositivos %}	
-			{% if pag == int(dispositivo[0]) %}	
+			{% if pag == dispositivo[0] %}	
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
 			{% else %}
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
