@@ -58,8 +58,8 @@
 				<img src="http://imageshack.com/a/img921/2451/lhPPOf.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% endif %}
 				<div class="btn-group">					
-					<a href="atualizarDispositivoDB?redirecionamento=1&porta=d0&valor=1&IdDisp={{ dispositivo[0] }}" class="btn btn-primary" role="button">Ligar</a>
-					<a href="atualizarDispositivoDB?redirecionamento=1&porta=d0&valor=0&IdDisp={{ dispositivo[0] }}" class="btn btn-warning" role="button">Desligar</a>
+					<a href="atualizarDispositivoDB?redirecionamento=1&porta=d0&valor=1&IdDisp={{ dispositivo[0] }}#menu{{ dispositivo[2] | replace(' ', '_') }}" class="btn btn-primary" role="button">Ligar</a>
+					<a href="atualizarDispositivoDB?redirecionamento=1&porta=d0&valor=0&IdDisp={{ dispositivo[0] }}#menu{{ dispositivo[2] | replace(' ', '_') }}" class="btn btn-warning" role="button">Desligar</a>
 				</div>
 				
 				{% if 1 == dispositivo[6] %}
