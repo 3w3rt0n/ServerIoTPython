@@ -22,9 +22,19 @@
 		<p>Aqui estão listados todos os dispositovos cadastrados.</p>
 
 		<ul class="nav nav-pills">
-			<li class="active"><a data-toggle="tab" href="#home">Principal</a></li>
+			{% if pag = 0 %}	
+			<li class="active">
+			{% else %}
+			<li>
+			{% endif %}
+			<a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			<li><a data-toggle="tab" href="#menu{{ dispositivo[2] | replace(' ', '_') }}">Dispositivo: {{ dispositivo[2] }}</a></li>
+			{% if pag ==  dispositivo[2] %}	
+			<li class="active">
+			{% else %}
+			<li>
+			{% endif %}
+			<a data-toggle="tab" href="#menu{{ dispositivo[2] | replace(' ', '_') }}">Dispositivo: {{ dispositivo[2] }}</a></li>
 			{% endfor %}
 		</ul>
 
