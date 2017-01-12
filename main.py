@@ -102,7 +102,7 @@ def atualizarDispositivoDB():
     conn.commit()
     if request.args.get('redirecionamento') == 0:
         return "Dispositivo atualizado com sucesso! (" + SQLcomando + ")"
-    else
+    else:
         cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
         rows2 = cur2.fetchall()
         # nome mudar depois
