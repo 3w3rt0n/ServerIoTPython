@@ -29,17 +29,21 @@
 			{% endif %}
 			<a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			{% if pag ==  dispositivo[2] %}	
+			{% if pag ==  dispositivo[0] %}	
 			<li class="active">
 			{% else %}
 			<li>
 			{% endif %}
-			<a data-toggle="tab" href="#menu{{ dispositivo[2] | replace(' ', '_') }}">Dispositivo: {{ dispositivo[2] }}</a></li>
+			<a data-toggle="tab" href="#menu{{ dispositivo[0] }}">Dispositivo: {{ dispositivo[2] }}</a></li>
 			{% endfor %}
 		</ul>
 
 		<div class="tab-content" style="height: 100%;">
+			{% if pag == 0 %}	
+			<div id="home" class="tab-pane fade in active">
+			{% else %}
 			<div id="home" class="tab-pane fade">
+			{% endif %}				
 				<h3>Todos</h3>
 				<div class="list-group">
 					{% for dispositivo in dispositivos %}	
@@ -58,8 +62,12 @@
 					{% endfor %}				
 				</div>
 			</div>
-			{% for dispositivo in dispositivos %}			
-			<div id="menu{{ dispositivo[2] | replace(' ', '_') }}" class="tab-pane fade  in active">
+			{% for dispositivo in dispositivos %}		
+			{% if pag == 0 %}	
+			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
+			{% else %}
+			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
+			{% endif %}			
 				<h3>Dispositivo {{ dispositivo[2] }}</h3>
 				
 				{% if 1 ==  dispositivo[5] %}				
