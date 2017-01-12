@@ -67,7 +67,8 @@
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
 			{% else %}
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
-			{% endif %}			
+			{% endif %}		
+				<p>pag: {{pag}} / id: {{ dispositivo[0] }} </p>
 				<h3>Dispositivo {{ dispositivo[2] }}</h3>
 				
 				{% if 1 ==  dispositivo[5] %}				
