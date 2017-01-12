@@ -111,7 +111,7 @@ def atualizarDispositivoDB():
         cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + IdUsuario + " ORDER BY Id ASC")
         rows2 = cur2.fetchall()
         print "::" + request.args.get('IdDisp')
-        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = str(request.args.get('IdDisp')))
+        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = request.args.get('IdDisp'))
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
