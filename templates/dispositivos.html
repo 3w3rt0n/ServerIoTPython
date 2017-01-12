@@ -29,7 +29,7 @@
 			{% endif %}
 			<a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			{% if pag ==  dispositivo[0] %}	
+			{% if pag ==  dispositivo[0]|string %}	
 			<li class="active">
 			{% else %}
 			<li>
@@ -65,14 +65,10 @@
 			{% for dispositivo in dispositivos %}	
 			{% if pag == dispositivo[0]|string %}	
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
-				<p>pag: {{ pag }} / id: {{ dispositivo[0]|string }} </p>
 			{% else %}
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
-				<p>pag: {{ pag }} / id: {{ dispositivo[0]|string }} </p>
-			{% endif %}		
-				
-				<h3>Dispositivo: {{ dispositivo[2] }}</h3>
-				
+			{% endif %}					
+				<h3>Dispositivo: {{ dispositivo[2] }}</h3>				
 				{% if 1 ==  dispositivo[5] %}				
 				<img src="http://imageshack.com/a/img921/8491/L8vNPk.png" class="img-rounded" alt="Ligado" width="70" height="70"> 
 				{% else %}
