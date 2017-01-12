@@ -41,7 +41,7 @@ def login():
             #return redirect(url_for('dispositivosHTML'))
             cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
             rows2 = cur2.fetchall()
-            respLogado = current_app.make_response(render_template("dispositivos.html", nome = row[1], dispositivos = rows2))
+            respLogado = current_app.make_response(render_template("dispositivos.html", nome = row[1], dispositivos = rows2, pag = 0))
             respLogado.set_cookie('IdUsuario', row[0])
             respLogado.set_cookie('Nome', row[1])
             return respLogado
@@ -110,7 +110,7 @@ def atualizarDispositivoDB():
         Nome = request.cookies.get('Nome')
         cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + IdUsuario + " ORDER BY Id ASC")
         rows2 = cur2.fetchall()
-        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2)
+        return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = rows2[2])
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
