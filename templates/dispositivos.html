@@ -29,7 +29,7 @@
 			{% endif %}
 			<a data-toggle="tab" href="#home">Principal</a></li>
 			{% for dispositivo in dispositivos %}
-			{% if pag ==  dispositivo[0] %}	
+			{% if pag ==  int(dispositivo[0]) %}	
 			<li class="active">
 			{% else %}
 			<li>
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			{% for dispositivo in dispositivos %}	
-			{% if pag == dispositivo[0] %}	
+			{% if pag == int(dispositivo[0]) %}	
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade  in active">
 			{% else %}
 			<div id="menu{{ dispositivo[0] }}" class="tab-pane fade">
