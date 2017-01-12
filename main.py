@@ -39,7 +39,7 @@ def login():
     for row in rows:
         if request.form['email'] == row[2] and request.form['pwd'] == row[3]:
             #return redirect(url_for('dispositivosHTML'))
-            cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDE BY Id ASC")
+            cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
             rows2 = cur2.fetchall()
             return render_template("dispositivos.html", nome = row[1], dispositivos = rows2)
     return "Email ou senha errado!<br /> <p>Email: {}".format(request.form['email']) + "</p><p>Senha: {}".format(request.form['pwd']) + "</p>"
@@ -100,7 +100,13 @@ def atualizarDispositivoDB():
     SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + " WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
     conn.commit()
-    return "Dispositivo atualizado com sucesso! (" + SQLcomando + ")"
+    if request.args.get('redirecionamento') == 0:
+        return "Dispositivo atualizado com sucesso! (" + SQLcomando + ")"
+    else
+        cur2.execute("SELECT * FROM dispositivos WHERE idUsuario = " + str(row[0]) + " ORDER BY Id ASC")
+        rows2 = cur2.fetchall()
+        # nome mudar depois
+        return render_template("dispositivos.html", nome = "teste", dispositivos = rows2)
 
 #----------------------------------------------------------#
 #                       Funcoes de Teste                   #
