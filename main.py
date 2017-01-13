@@ -94,7 +94,7 @@ def listaDispositivosDB():
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
     dt = datetime.now()
-    cur.execute("INSERT INTO dispositivos ( idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, now())", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
+    cur.execute("INSERT INTO dispositivos (idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8'], dt))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
 
