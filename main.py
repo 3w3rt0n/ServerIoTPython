@@ -3,6 +3,7 @@ import os
 import sys
 import psycopg2
 import urlparse
+import datatime
 from flask import Flask, request, redirect, url_for, current_app, render_template
 
 reload(sys)     
@@ -92,7 +93,8 @@ def listaDispositivosDB():
 #Cadastrar no banco o dispositivo
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
-    cur.execute("INSERT INTO dispositivos ( idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8']))
+    dt = datetime.now()
+    cur.execute("INSERT INTO dispositivos ( idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8'], dt))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
 
