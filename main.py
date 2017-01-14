@@ -119,7 +119,7 @@ def atualizarDispositivoDB():
 def lerBD():
     cur.execute("SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao FROM dispositivos WHERE mac = '" + request.args.get('mac') + "'")
     row = cur.fetchall()   
-    return "<h1>" + row + "</h1>"
+    return "<h1>" + str(row) + "</h1>"
     
 
 #=========================================================================================================#
