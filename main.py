@@ -95,7 +95,7 @@ def listaDispositivosDB():
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
     #pega hora local
-    local_tz = pytz.timezone ("America/Recife")
+    local_tz = pytz.timezone ("Brazil/DeNoronha")
     atual = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')
     datetime_without_tz = datetime.datetime.strptime(atual, "%Y-%m-%d %H:%M")
     datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
@@ -110,7 +110,7 @@ def cadastrarDispositivoDB():
 @app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
     #pega hora local
-    local_tz = pytz.timezone ("America/Recife")
+    local_tz = pytz.timezone ("Brazil/DeNoronha")
     atual = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')
     datetime_without_tz = datetime.datetime.strptime(atual, "%Y-%m-%d %H:%M")
     datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
