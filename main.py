@@ -97,7 +97,7 @@ def listaDispositivosDB():
 def cadastrarDispositivoDB():
     #pega hora local
     epoch_time = int(time.time())
-    dt_formatada = time.gmtime(epoch_time)
+    dt_formatada = time.strftime('%Y-%m-%d %H:%M', time.localtime(epoch_time))
     dt = str(epoch_time)
     #dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
     #------
