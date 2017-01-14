@@ -103,7 +103,7 @@ def cadastrarDispositivoDB():
 @app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
     dt = datetime.now()
-    SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + ", atualizacao = " + str(dt)  + " WHERE Id=" + request.args.get('IdDisp')
+    SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + ", atualizacao = '" + str(dt)  + "' WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
     conn.commit()    
     IdUsuario = request.cookies.get('IdUsuario')
