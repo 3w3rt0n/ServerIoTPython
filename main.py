@@ -111,10 +111,20 @@ def atualizarDispositivoDB():
     rows2 = cur2.fetchall()
     return render_template("dispositivos.html", nome = Nome, dispositivos = rows2, pag = request.args.get('IdDisp'))
    
+#=========================================================================================================#
+#                                  Funções de comunicação com ESP 8266                                    #
+#=========================================================================================================#
 
-#----------------------------------------------------------#
-#                       Funcoes de Teste                   #
-#----------------------------------------------------------#
+@app.route("/lerBD", methods=["GET"])
+def lerBD():
+    cur.execute("SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao FROM dispositivos WHERE mac = " + request.args.get('mac'))
+    row = cur.fetchall()   
+    return "<h1>" + row + "</h1>"
+    
+
+#=========================================================================================================#
+#                                          Funções de Teste                                               #
+#=========================================================================================================#
 @app.route("/<name>")
 def nome(name):
     return "Pagina nao encontrada: {}".format(name)
