@@ -3,7 +3,7 @@ import os
 import sys
 import psycopg2
 import urlparse
-from pytz import pytz
+import pytz
 from datetime import datetime
 from flask import Flask, request, redirect, url_for, current_app, render_template
 
