@@ -117,7 +117,7 @@ def atualizarDispositivoDB():
 
 @app.route("/lerBD", methods=["GET"])
 def lerBD():
-    cur.execute("SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao FROM dispositivos WHERE mac = " + request.args.get('mac'))
+    cur.execute("SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao FROM dispositivos WHERE mac = '" + request.args.get('mac') + "'")
     row = cur.fetchall()   
     return "<h1>" + row + "</h1>"
     
