@@ -96,7 +96,7 @@ def listaDispositivosDB():
 def cadastrarDispositivoDB():
     #pega hora local
     local_tz = pytz.timezone ("America/Recife")
-    datetime_without_tz = datetime.datetime.strptime("2015-02-14 12:34:56", "%Y-%m-%d %H:%M:%S")
+    datetime_without_tz = datetime.datetime.strptime(datetime.datetime.now(), "%Y-%m-%d %H:%M:%S")
     datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
     dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
     #------
@@ -110,7 +110,7 @@ def cadastrarDispositivoDB():
 def atualizarDispositivoDB():
     #pega hora local
     local_tz = pytz.timezone ("America/Recife")
-    datetime_without_tz = datetime.datetime.strptime("2015-02-14 12:34:56", "%Y-%m-%d %H:%M:%S")
+    datetime_without_tz = datetime.datetime.strptime(datetime.datetime.now(), "%Y-%m-%d %H:%M:%S")
     datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
     dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
     #---------
