@@ -93,7 +93,7 @@ def listaDispositivosDB():
 #Cadastrar no banco o dispositivo
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
-    dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    dt = datetime.now().strftime('%Y-%m-%d %H:%M')
     cur.execute("INSERT INTO dispositivos (idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8'], str(dt)))
     conn.commit()
     return "Dispositivo inserido com sucesso!"
@@ -102,7 +102,7 @@ def cadastrarDispositivoDB():
 #http://site/atualizarDispositivoDB?porta=d0&valor=1&IdDisp=9
 @app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
-    dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    dt = datetime.now().strftime('%Y-%m-%d %H:%M')
     SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + ", atualizacao = '" + str(dt)  + "' WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
     conn.commit()    
