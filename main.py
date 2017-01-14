@@ -5,6 +5,7 @@ import psycopg2
 import urlparse
 import pytz
 import datetime
+import time
 from flask import Flask, request, redirect, url_for, current_app, render_template
 
 reload(sys)     
@@ -95,11 +96,10 @@ def listaDispositivosDB():
 @app.route("/cadastrarDispositivos", methods=["POST"])
 def cadastrarDispositivoDB():
     #pega hora local
-    local_tz = pytz.timezone ("Etc/GMT-3")
-    atual = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')
-    datetime_without_tz = datetime.datetime.strptime(atual, "%Y-%m-%d %H:%M")
-    datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
-    dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
+    epoch_time = int(time.time())
+    dt_formatada = time.gmtime(epoch_time)
+    dt = str(epoch_time)
+    #dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
     #------
     cur.execute("INSERT INTO dispositivos (idUsuario, dispositivo, mac, a0, d0, d1, d2, d3, d4, d5, d6, d7, d8, atualizacao) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( request.form['idUsuario'], request.form['dispositivo'], request.form['MAC'], request.form['a0'], request.form['d0'], request.form['d1'], request.form['d2'], request.form['d3'], request.form['d4'], request.form['d5'], request.form['d6'], request.form['d7'], request.form['d8'], str(dt)))
     conn.commit()
@@ -110,11 +110,8 @@ def cadastrarDispositivoDB():
 @app.route("/atualizarDispositivoDB", methods=["GET"])
 def atualizarDispositivoDB():
     #pega hora local
-    local_tz = pytz.timezone ("Etc/GMT-3")
-    atual = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')
-    datetime_without_tz = datetime.datetime.strptime(atual, "%Y-%m-%d %H:%M")
-    datetime_with_tz = local_tz.localize(datetime_without_tz, is_dst=None) # No daylight saving time
-    dt = datetime_without_tz.strftime('%Y-%m-%d %H:%M')
+    epoch_time = int(time.time())
+    dt = str(epoch_time)
     #---------
     SQLcomando = "UPDATE dispositivos SET " + request.args.get('porta') + "=" + request.args.get('valor') + ", atualizacao = '" + str(dt)  + "' WHERE Id=" + request.args.get('IdDisp')
     cur.execute(SQLcomando)
