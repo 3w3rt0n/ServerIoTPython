@@ -4,7 +4,7 @@ import sys
 import psycopg2
 import urlparse
 import pytz
-from datetime import datetime
+import datetime
 from flask import Flask, request, redirect, url_for, current_app, render_template
 
 reload(sys)     
